@@ -106,7 +106,7 @@ Toolkit.run(async tools => {
     console.log(`::set-output name=newTag::${newVersion}`)
     try {
       // to support "actions/checkout@v1"
-      await tools.runInWorkspace('git', ['commit', '-a', '-m', `ci: ${commitMessage} ${newVersion}`])
+      await tools.runInWorkspace('git', ['commit', '-a', '-m', `${commitMessage} ${newVersion}`])
     } catch (e) {
       console.warn('git commit failed because you are using "actions/checkout@v2"; ' +
         'but that doesnt matter because you dont need that git commit, thats only for "actions/checkout@v1"')
